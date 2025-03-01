@@ -1,0 +1,25 @@
+:root {
+    interpolate-size: allow-keywords;
+
+    /* Основные цвета */
+    --white: #fff;
+    --black: #000;
+    --dark-green: #203D37;
+
+    /* Размеры */
+    --gap: 20px;
+
+    --text-color: var(--black);
+    --text-color-second: var(--white);
+
+    --header-background: var(--dark-green);
+    --nav-background: rgba(var(--dark-green), 0.7);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
