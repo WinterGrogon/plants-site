@@ -23,3 +23,120 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+    height: 80px;
+
+    padding-inline: var(--gap);
+
+    background-color: var(--header-background);
+    color: var(--text-color-second);
+
+    position: relative;
+}
+
+.menu-btn,
+label.menu-btn {
+    height: 50%;
+    aspect-ratio: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &>span,
+    &::before,
+    &::after {
+        display: block;
+
+        width: 100%;
+        height: 6px;
+
+        background-color: var(--white);
+    }
+
+    &::before,
+    &::after {
+        content: "";
+
+        transition: transform 0.2s ease;
+    }
+}
+
+.header>input[type="checkbox"] {
+    display: none;
+}
+
+.header>input[type="checkbox"]:checked+label.menu-btn {
+    &::before {
+        animation-name: move-and-rotate-top;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+    }
+
+    & > span {
+        opacity: 0;
+    }
+
+    &::after {
+        animation-name: move-and-rotate-bottom;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+    }
+}
+
+.header>input[type="checkbox"]:checked~nav.nav {
+    height: auto;
+    padding: 20px;
+}
+
+nav.nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    width: 100%;
+    height: 0;
+    padding: 0;
+    
+    background-color: var(--header-background);
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    overflow: hidden;
+
+    transition: height .2s ease, 
+                padding .2s ease;
+}
+
+.nav__link {
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+    font-size: 40px;
+}
+
+@keyframes move-and-rotate-top {
+    50% {
+        transform: translateY(280%);
+    }
+    100% {
+        transform: translateY(280%) rotate(-45deg);
+    }
+}
+
+@keyframes move-and-rotate-bottom {
+    50% {
+        transform: translateY(-280%);
+    }
+    100% {
+        transform: translateY(-280%) rotate(45deg);
+    }
+}
