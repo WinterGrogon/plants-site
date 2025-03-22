@@ -187,12 +187,12 @@ nav.nav {
     object-fit: cover;
 }
 
-.delivery__header {
+.delivery__header, .future__header {
     display: flex;
     margin-bottom: var(--padding);
 }
 
-.delivery__title {
+.delivery__title, .future__title {
     flex-grow: 1;
     text-align: right;
     font-size: var(--title-size);
