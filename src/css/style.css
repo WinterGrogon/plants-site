@@ -12,6 +12,8 @@
 
     /* Размеры */
     --gap: 20px;
+    --padding: 15px;
+    --title-size: 1.5rem;
 
     /* Текст */
     --text-color: var(--black);
@@ -34,8 +36,16 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 20px;
+}
+
 body {
     font-family: 'Roboto', Arial, sans-serif;
+}
+
+.container {
+    padding: calc(var(--padding) * 2) var(--padding) var(--padding);
 }
 
 .header {
@@ -175,6 +185,17 @@ nav.nav {
 
     object-position: center;
     object-fit: cover;
+}
+
+.delivery__header {
+    display: flex;
+    margin-bottom: var(--padding);
+}
+
+.delivery__title {
+    flex-grow: 1;
+    text-align: right;
+    font-size: var(--title-size);
 }
 
 @keyframes move-and-rotate-top {
