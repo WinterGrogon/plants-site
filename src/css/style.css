@@ -9,6 +9,8 @@
     --dark-green: #203D37;
     --green: #21683E;
     --blue: #296274;
+    --light-green: #51BF4F;
+    --light-blue: #3DA077;
 
     /* Размеры */
     --gap: 20px;
@@ -42,6 +44,10 @@ html {
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .container {
@@ -196,6 +202,49 @@ nav.nav {
     flex-grow: 1;
     text-align: right;
     font-size: var(--title-size);
+}
+
+.cards__items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cards__item {
+    width: 100%;
+    max-width: 450px;
+    margin-inline: auto;
+}
+
+.cards__item figure{
+    display: flex;
+    flex-direction: column;
+}
+
+.cards__item img {
+    align-self: flex-end;
+
+    width: 60%;
+    margin-right: 15px;
+
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    position: relative;
+}
+
+.cards__item figcaption {
+    padding: 65px 15px 15px;
+    margin-top: -50px;
+    border-radius: 15px;
+}
+
+.cards__item:nth-of-type(odd) figcaption {
+    background-color: var(--light-green);
+}
+
+.cards__item:nth-of-type(even) figcaption {
+    background-color: var(--light-blue);
 }
 
 @keyframes move-and-rotate-top {
