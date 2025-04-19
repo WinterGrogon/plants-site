@@ -247,6 +247,99 @@ nav.nav {
     background-color: var(--light-blue);
 }
 
+.form > .container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 70px;
+}
+
+.form__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    padding: 40px 30px;
+
+    background-color: var(--light-blue);
+    color: var(--white);
+    border-radius: 15px;
+
+    position: relative;
+
+    &::before, &::after {
+        content: "";
+        width: 40%;
+        aspect-ratio: 1;
+
+        background-color: inherit;
+        border-radius: 50%;
+
+        position: absolute;
+        z-index: -1;
+    }
+
+    &::before {
+        bottom: 100%;
+        left: 0;
+        transform: translateY(55%);
+    }
+    
+    &::after {
+        top: 100%;
+        right: 0;
+        transform: translateY(-55%);
+    }
+}
+
+.form__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    & > label {
+        font-weight: 700;
+    }
+    
+    & > input {
+        -webkit-appearance: none; /* Убирает стрелки в Chrome, Safari, Edge */
+        -moz-appearance: textfield; /* Убирает стрелки в Firefox */
+
+        height: 40px;
+        padding-inline: 10px;
+
+        border: none;
+        border-radius: 10px;
+    }
+}
+
+.form__button {
+    color: inherit;
+    background-color: var(--light-green);
+
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 95px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    position: relative;
+
+    &::before {
+        content: "";
+
+        background: url("../img/btn-icon.png") center / cover no-repeat;
+
+        width: 70px;
+        aspect-ratio: 151 / 200;
+
+        position: absolute;
+        bottom: 95%;
+        left: 0;
+    }
+}
+
 @keyframes move-and-rotate-top {
     50% {
         transform: translateY(280%);
