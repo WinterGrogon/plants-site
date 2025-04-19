@@ -279,15 +279,15 @@ nav.nav {
     }
 
     &::before {
-        bottom: 100%;
+        bottom: 80%;
         left: 0;
-        transform: translateY(55%);
+        animation: move-right 7s ease 0s infinite alternate;
     }
     
     &::after {
-        top: 100%;
+        top: 80%;
         right: 0;
-        transform: translateY(-55%);
+        animation: move-left 7s ease 0s infinite alternate;
     }
 }
 
@@ -357,5 +357,19 @@ nav.nav {
 
     100% {
         transform: translateY(-280%) rotate(45deg);
+    }
+}
+
+@keyframes move-right {
+    100% {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes move-left {
+    100% {
+        right: 100%;
+        transform: translateX(100%);
     }
 }
