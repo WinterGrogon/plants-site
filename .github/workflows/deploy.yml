@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.PLANTS_SITE_WORKFLOW }}
+
+      - name: Replace Api Key
+        run: |
+          sed -i "s/YANDEX_API_KEY/${{ secrets.YANDEX_API_KEY }}/g" index.html
+          
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: .
+          token: ${{ secrets.PLANTS_SITE_WORKFLOW }}
