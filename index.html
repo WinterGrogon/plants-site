@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="" class="header__logo">
+            <img src="./src/img/logo.svg" alt="Logo">
+        </a>
+
+        <input type="checkbox" id="open-menu">
+        <label class="menu-btn" for="open-menu">
+            <span></span>
+        </label>
+
+        <nav class="nav">
+            <a href="#delivery" class="nav__link">Доставка</a>
+            <a href="#future" class="nav__link">Наша фишка</a>
+            <a href="#cards" class="nav__link">Топ растений</a>
+            <a href="#" class="nav__link">Карта</a>
+            <a href="#form" class="nav__link">Заказ звонка</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="start">
+            <h1 class="start__title">
+                Твой <span>комнатный</span> <span>зелёный</span> друг
+            </h1>
+
+            <picture class="start__picture">
+                <source srcset="./src/img/header-mobile-p.png" media="(max-width: 380px)">
+                <source srcset="./src/img/header-mobile-l.png" media="(max-width: 780px) and (max-height: 380px)">
+                <source srcset="./src/img/header-tablet-p.png" media="(max-width: 1025px) and (max-height: 1367px)">
+                <source srcset="./src/img/header-tablet-l.png" media="(max-width: 1367px) and (max-height: 1025px)">
+                <source srcset="./src/img/header-desktop.png" media="(min-width: 1368px)">
+                <img src="./src/img/header-mobile-p.png" alt="мой маленький зелёный друк">
+            </picture>
+        </section>
+
+        <section class="delivery" id="delivery">
+            <div class="container">
+                <header class="delivery__header">
+                    <img src="src/img/section2-logo.svg" alt="мастер йода объелся мёда" class="delivery__image">
+                    <h2 class="delivery__title">Комнатные растения с доставкой</h2>
+                </header>
+                <p class="delivery__text">
+                    Заказывай у нас комнатные растения. Доставка бесплатно. А еще мы будем раз в месяц привозить тебе
+                    необходимые вещи, чтобы растение цвело и доставляло тебе радость
+                </p>
+            </div>
+        </section>
+
+        <section class="future" id="future">
+            <div class="container">
+                <header class="future__header">
+                    <img src="src/img/section3-logo.svg" alt="мейс виндоу выпал через виндоу" class="future__image">
+                    <h2 class="future__title">Селекция будущего</h2>
+                </header>
+                <p class="future__text">
+                    Наши растения выведены с использованием современной генной инженерии и последних достижений
+                    садоводства. Они неприхотливы, но при этом выделяют в 100 раз больше кислорода чем обычные растения
+                </p>
+            </div>
+        </section>
+
+        <section class="cards" id="cards">
+            <div class="container">
+                <h2 class="cards__title">Топ наших растений</h2>
+
+                <ul class="cards__items">
+                    <li class="cards__item">
+                        <figure>
+                            <img src="./src/img/bestsellers1.png" alt="чипичипи">
+                            <figcaption>Растение 1</figcaption>
+                        </figure>
+                    </li>
+                    <li class="cards__item">
+                        <figure>
+                            <img src="./src/img/bestsellers2.png" alt="чапачапа">
+                            <figcaption>Растение 2</figcaption>
+                        </figure>
+                    </li>
+                    <li class="cards__item">
+                        <figure>
+                            <img src="./src/img/bestsellers3.png" alt="дубидуби">
+                            <figcaption>Растение 3</figcaption>
+                        </figure>
+                    </li>
+                    <li class="cards__item">
+                        <figure>
+                            <img src="./src/img/bestsellers4.png" alt="дабадаба">
+                            <figcaption>Растение 4</figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="form" id="form">
+            <div class="container">
+                <h2 class="form__title">Заказать обратный звонок</h2>
+
+                <form action="#!" class="form__body">
+                    <div class="form__wrapper">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email">
+                    </div>
+
+                    <div class="form__wrapper">
+                        <label for="phone">Телефон для связи</label>
+                        <input type="number" id="phone">
+                    </div>
+
+                    <button class="form__button">Отправить данные</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

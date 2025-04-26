@@ -1,0 +1,375 @@
+@import url("../fonts/Roboto/stylesheets.css");
+
+:root {
+    interpolate-size: allow-keywords;
+
+    /* Основные цвета */
+    --white: #fff;
+    --black: #000;
+    --dark-green: #203D37;
+    --green: #21683E;
+    --blue: #296274;
+    --light-green: #51BF4F;
+    --light-blue: #3DA077;
+
+    /* Размеры */
+    --gap: 20px;
+    --padding: 15px;
+    --title-size: 1.5rem;
+
+    /* Текст */
+    --text-color: var(--black);
+    --text-color-second: var(--white);
+
+    /* Фон */
+    --header-background: var(--dark-green);
+    --nav-background: rgba(var(--dark-green), 0.7);
+
+    /* Цвета Тайтла */
+    --title-color: var(--blue);
+    --title-color-second: var(--green);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 20px;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    padding: calc(var(--padding) * 2) var(--padding) var(--padding);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 80px;
+
+    padding-inline: var(--gap);
+
+    background-color: var(--header-background);
+    color: var(--text-color-second);
+
+    position: fixed;
+    z-index: 1000;
+}
+
+.menu-btn,
+label.menu-btn {
+    height: 50%;
+    aspect-ratio: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &>span,
+    &::before,
+    &::after {
+        display: block;
+
+        width: 100%;
+        height: 6px;
+
+        background-color: var(--white);
+    }
+
+    &::before,
+    &::after {
+        content: "";
+
+        transition: transform 0.2s ease;
+    }
+}
+
+.header>input[type="checkbox"] {
+    display: none;
+}
+
+.header>input[type="checkbox"]:checked+label.menu-btn {
+    &::before {
+        animation-name: move-and-rotate-top;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+    }
+
+    &>span {
+        opacity: 0;
+    }
+
+    &::after {
+        animation-name: move-and-rotate-bottom;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+    }
+}
+
+.header>input[type="checkbox"]:checked~nav.nav {
+    height: auto;
+    padding: 20px;
+}
+
+nav.nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    width: 100%;
+    height: 0;
+    padding: 0;
+
+    background-color: var(--header-background);
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    overflow: hidden;
+
+    transition: height .2s ease,
+        padding .2s ease;
+}
+
+.nav__link {
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+    font-size: 40px;
+}
+
+.start {
+    width: 100%;
+    height: 100dvh;
+    position: relative;
+}
+
+.start__title {
+    position: absolute;
+    top: 10px;
+    z-index: 2;
+
+    width: calc(100% - 30px);
+    margin: 80px 15px 0;
+
+    color: var(--white);
+    font-size: 40px;
+    text-align: center;
+
+    &>span:first-of-type {
+        color: var(--title-color);
+    }
+
+    &>span:last-of-type {
+        color: var(--title-color-second);
+    }
+}
+
+.start__picture img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-position: center;
+    object-fit: cover;
+}
+
+.delivery__header, .future__header {
+    display: flex;
+    margin-bottom: var(--padding);
+}
+
+.delivery__title, .future__title {
+    flex-grow: 1;
+    text-align: right;
+    font-size: var(--title-size);
+}
+
+.cards__items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cards__item {
+    width: 100%;
+    max-width: 450px;
+    margin-inline: auto;
+}
+
+.cards__item figure{
+    display: flex;
+    flex-direction: column;
+}
+
+.cards__item img {
+    align-self: flex-end;
+
+    width: 60%;
+    margin-right: 15px;
+
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    position: relative;
+}
+
+.cards__item figcaption {
+    padding: 65px 15px 15px;
+    margin-top: -50px;
+    border-radius: 15px;
+}
+
+.cards__item:nth-of-type(odd) figcaption {
+    background-color: var(--light-green);
+}
+
+.cards__item:nth-of-type(even) figcaption {
+    background-color: var(--light-blue);
+}
+
+.form > .container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 70px;
+}
+
+.form__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    padding: 40px 30px;
+
+    background-color: var(--light-blue);
+    color: var(--white);
+    border-radius: 15px;
+
+    position: relative;
+
+    &::before, &::after {
+        content: "";
+        width: 150px;
+        aspect-ratio: 1;
+
+        background-color: inherit;
+        border-radius: 50%;
+
+        position: absolute;
+        z-index: -1;
+    }
+
+    &::before {
+        bottom: 80%;
+        left: 0;
+        animation: move-right 7s ease 0s infinite alternate;
+    }
+    
+    &::after {
+        top: 80%;
+        right: 0;
+        animation: move-left 7s ease 0s infinite alternate;
+    }
+}
+
+.form__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    & > label {
+        font-weight: 700;
+    }
+    
+    & > input {
+        -webkit-appearance: none; /* Убирает стрелки в Chrome, Safari, Edge */
+        -moz-appearance: textfield; /* Убирает стрелки в Firefox */
+
+        height: 40px;
+        padding-inline: 10px;
+
+        border: none;
+        border-radius: 10px;
+    }
+}
+
+.form__button {
+    color: inherit;
+    background-color: var(--light-green);
+
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 95px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    position: relative;
+
+    &::before {
+        content: "";
+
+        background: url("../img/btn-icon.png") center / cover no-repeat;
+
+        width: 70px;
+        aspect-ratio: 151 / 200;
+
+        position: absolute;
+        bottom: 95%;
+        left: 0;
+    }
+}
+
+@keyframes move-and-rotate-top {
+    50% {
+        transform: translateY(280%);
+    }
+
+    100% {
+        transform: translateY(280%) rotate(-45deg);
+    }
+}
+
+@keyframes move-and-rotate-bottom {
+    50% {
+        transform: translateY(-280%);
+    }
+
+    100% {
+        transform: translateY(-280%) rotate(45deg);
+    }
+}
+
+@keyframes move-right {
+    100% {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes move-left {
+    100% {
+        right: 100%;
+        transform: translateX(100%);
+    }
+}
