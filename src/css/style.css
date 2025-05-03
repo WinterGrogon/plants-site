@@ -386,21 +386,33 @@ nav.nav {
     .menu-btn, label.menu-btn {
         display: none;
     }
-
+    
     .nav.nav {
         display: flex;
         flex-direction: row;
         column-gap: 30px;
-
+        
         width: fit-content;
         height: auto;
-
+        
         position: static;
     }
     
     .nav__link, a.nav__link {
         font-size: 20px;
     }
+    
+    .start__title {
+        width: 500px;
+        text-align: left;
+
+        top: 40%;
+        left: 10px;
+        transform: translateY(-50%);
+
+        font-size: 60px;
+    }
+
 
     .delivery>.container {
         display: flex;
