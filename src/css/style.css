@@ -52,6 +52,8 @@ ul {
 
 .container {
     padding: calc(var(--padding) * 2) var(--padding) var(--padding);
+    max-width: 1000px;
+    margin-inline: auto;
 }
 
 .header {
@@ -193,12 +195,14 @@ nav.nav {
     object-fit: cover;
 }
 
-.delivery__header, .future__header {
+.delivery__header,
+.future__header {
     display: flex;
     margin-bottom: var(--padding);
 }
 
-.delivery__title, .future__title {
+.delivery__title,
+.future__title {
     flex-grow: 1;
     text-align: right;
     font-size: var(--title-size);
@@ -216,7 +220,7 @@ nav.nav {
     margin-inline: auto;
 }
 
-.cards__item figure{
+.cards__item figure {
     display: flex;
     flex-direction: column;
 }
@@ -237,6 +241,7 @@ nav.nav {
     padding: 65px 15px 15px;
     margin-top: -50px;
     border-radius: 15px;
+    color: var(--white);
 }
 
 .cards__item:nth-of-type(odd) figcaption {
@@ -247,7 +252,7 @@ nav.nav {
     background-color: var(--light-blue);
 }
 
-.form > .container {
+.form>.container {
     display: flex;
     flex-direction: column;
     row-gap: 70px;
@@ -266,7 +271,8 @@ nav.nav {
 
     position: relative;
 
-    &::before, &::after {
+    &::before,
+    &::after {
         content: "";
         width: 150px;
         aspect-ratio: 1;
@@ -283,7 +289,7 @@ nav.nav {
         left: 0;
         animation: move-right 7s ease 0s infinite alternate;
     }
-    
+
     &::after {
         top: 80%;
         right: 0;
@@ -296,13 +302,15 @@ nav.nav {
     flex-direction: column;
     row-gap: 10px;
 
-    & > label {
+    &>label {
         font-weight: 700;
     }
-    
-    & > input {
-        -webkit-appearance: none; /* Убирает стрелки в Chrome, Safari, Edge */
-        -moz-appearance: textfield; /* Убирает стрелки в Firefox */
+
+    &>input {
+        -webkit-appearance: none;
+        /* Убирает стрелки в Chrome, Safari, Edge */
+        -moz-appearance: textfield;
+        /* Убирает стрелки в Firefox */
 
         height: 40px;
         padding-inline: 10px;
@@ -371,5 +379,80 @@ nav.nav {
     100% {
         right: 100%;
         transform: translateX(100%);
+    }
+}
+
+@media screen and (min-width: 764px) {
+    .menu-btn, label.menu-btn {
+        display: none;
+    }
+
+    .nav.nav {
+        display: flex;
+        flex-direction: row;
+        column-gap: 30px;
+
+        width: fit-content;
+        height: auto;
+
+        position: static;
+    }
+    
+    .nav__link, a.nav__link {
+        font-size: 20px;
+    }
+
+    .delivery>.container {
+        display: flex;
+        column-gap: 90px;
+    }
+
+    .delivery>.container::after {
+        content: "";
+
+        background: url("../img/delivery_right-image.svg") center / cover no-repeat;
+
+        width: 15%;
+        aspect-ratio: 183/353;
+
+        flex-shrink: 0;
+        align-self: flex-start;
+    }
+
+    .delivery__header {
+        align-items: flex-end;
+    }
+
+    .future>.container {
+        display: flex;
+        column-gap: 20px;
+        text-align: right;
+    }
+
+    .future>.container::before {
+        content: "";
+
+        background: url("../img/feature_left-image.svg") center / cover no-repeat;
+
+        width: 25%;
+        aspect-ratio: 289/342;
+
+        flex-shrink: 0;
+        align-self: flex-start;
+    }
+
+    .future__header {
+        align-items: flex-end;
+    }
+
+    .cards__items {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .cards__item {
+        width: 50%;
     }
 }
